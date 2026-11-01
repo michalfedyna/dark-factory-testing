@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Bike Shopping Demo",
+    "slug": "bike-shopping-demo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.demo.bikeshopping"
+    },
+    "android": {
+      "package": "com.demo.bikeshopping"
+    }
+  }
+}

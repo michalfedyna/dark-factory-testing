@@ -1,0 +1,1061 @@
+{
+  "codeRevision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+  "baseRevision": "6eb48361b95bd6c79dc94c6f21cb29ddd94943fe",
+  "rounds": 1,
+  "attempts": 1,
+  "summary": {
+    "title": "Add interactive Expo bike-shopping prototype from Figma",
+    "changes": [
+      "Preserved the supplied Figma presentation scaffold and implemented catalog, product details, cart, shipping-address entry, and mock confirmation screens.",
+      "Added session-only search, category filters, favorites, product tabs, back navigation, cart quantity changes and removal, cents-based totals, and non-stacking Bike discounts.",
+      "Added required shipping-address validation and an explicitly labeled mock confirmation that creates no real order, payment, or shipment.",
+      "Included iOS and Android native source, deterministic shopping-state tests, verification scripts, and updated documentation."
+    ],
+    "testing": [
+      "Shopping-state tests passed; independent review reran npm test with four tests passing.",
+      "TypeScript checking and JavaScript exports for both iOS and Android passed.",
+      "Independent review passed expo install --check, 100 integer-arithmetic discount cases, and a reducer immutability probe.",
+      "The supplied iOS preparation command succeeded, and the iOS Release candidate was built, installed, and exercised in the simulator.",
+      "QA passed AC1–AC5, covering visual comparison with all four design references, search and filters, favorites, product tabs, navigation, cart updates, discount recalculation, checkout validation, and successful mock confirmation.",
+      "Independent review found no blocking correctness, security, regression, or scope-compliance defects and freshly exercised the core shopping flow on iOS."
+    ],
+    "limitations": [
+      "Android native execution and hardware Back behavior remain unverified; Android JavaScript export passed, and shared shopping behavior was verified on iOS.",
+      "Visual fidelity includes approximations in card geometry, navigation treatment, product silhouettes, and decorative effects. Inherited low-resolution product imagery appears soft when enlarged.",
+      "Secondary navigation icons remain visual-only. State is session-only; no backend, persistence, real payment, or real order creation is included.",
+      "Independent review noted an advisory maintainability issue: densely formatted screen JSX and route expressions should be reformatted and decomposed in a follow-up."
+    ]
+  },
+  "criteria": [
+    {
+      "id": "AC1",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e7",
+        "r1-e17",
+        "r1-e18",
+        "r1-e38",
+        "r1-e42",
+        "r1-e43",
+        "r1-e72",
+        "r1-e73"
+      ]
+    },
+    {
+      "id": "AC2",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e13",
+        "r1-e15",
+        "r1-e17",
+        "r1-e20",
+        "r1-e75",
+        "r1-e77",
+        "r1-e79",
+        "r1-e83",
+        "r1-e85",
+        "r1-e87",
+        "r1-e91",
+        "r1-e113",
+        "r1-e115",
+        "r1-e119"
+      ]
+    },
+    {
+      "id": "AC3",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e9",
+        "r1-e22",
+        "r1-e31",
+        "r1-e40",
+        "r1-e95",
+        "r1-e97",
+        "r1-e103",
+        "r1-e105",
+        "r1-e107"
+      ]
+    },
+    {
+      "id": "AC4",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e27",
+        "r1-e29",
+        "r1-e31",
+        "r1-e35",
+        "r1-e40"
+      ]
+    },
+    {
+      "id": "AC5",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e9",
+        "r1-e48",
+        "r1-e51",
+        "r1-e70",
+        "r1-e72",
+        "r1-e73",
+        "r1-e108",
+        "r1-e109"
+      ]
+    }
+  ],
+  "qaVerdict": "pass",
+  "reviewVerdict": "pass",
+  "evidence": [
+    {
+      "id": "r1-e1",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "check",
+      "targetId": null,
+      "operation": "shopping-state-tests",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e2",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "check",
+      "targetId": null,
+      "operation": "typescript",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e3",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "check",
+      "targetId": null,
+      "operation": "ios-android-bundles",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e4",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "check",
+      "targetId": null,
+      "operation": "prepare-ios-shopping",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e5",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "open",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e6",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e7",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "screenshot",
+      "targetId": "ios-shopping",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e8",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e9",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e10",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e11",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e12",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e13",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e14",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e15",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e16",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e17",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e18",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "screenshot",
+      "targetId": "ios-shopping",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e19",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e20",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e21",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e22",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e23",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e24",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 1
+    },
+    {
+      "id": "r1-e25",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e26",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e27",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e28",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e29",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e30",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e31",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e32",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e33",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e34",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e35",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e36",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e37",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e38",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "screenshot",
+      "targetId": "ios-shopping",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e39",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e40",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e41",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e42",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e43",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "screenshot",
+      "targetId": "ios-shopping",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e44",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "help",
+      "exitCode": 1
+    },
+    {
+      "id": "r1-e45",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e46",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e47",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e48",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e49",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "scroll",
+      "exitCode": 1
+    },
+    {
+      "id": "r1-e50",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "swipe",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e51",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e52",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e53",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e54",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e55",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e56",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e57",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e58",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e59",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e60",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e61",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e62",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e63",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e64",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e65",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e66",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e67",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e68",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e69",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e70",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e71",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e72",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e73",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "screenshot",
+      "targetId": "ios-shopping",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e74",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e75",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e76",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e77",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e78",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e79",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e80",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e81",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e82",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e83",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e84",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e85",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e86",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "fill",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e87",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e88",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e89",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e90",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e91",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e92",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e93",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e94",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e95",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e96",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e97",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e98",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e99",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e100",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e101",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e102",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e103",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e104",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e105",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e106",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e107",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e108",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e109",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e110",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e111",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e112",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e113",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e114",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e115",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e116",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e117",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e118",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e119",
+      "revision": "7adbdb9236f1a1ad1c3cfb5adbe50d06f15acfe8",
+      "kind": "device",
+      "targetId": "ios-shopping",
+      "operation": "snapshot",
+      "exitCode": 0
+    }
+  ]
+}
