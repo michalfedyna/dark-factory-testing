@@ -1,0 +1,478 @@
+{
+  "codeRevision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+  "baseRevision": "6eb48361b95bd6c79dc94c6f21cb29ddd94943fe",
+  "rounds": 1,
+  "summary": {
+    "title": "Add Ember & Oak fictional coffee shop landing page",
+    "changes": [
+      "Create a warm, single-page Next.js site with consistent Ember & Oak branding, locally hosted photography and fonts, an introduction, and shop story.",
+      "Add eight menu items with USD prices, weekday and weekend opening hours, and the explicitly imaginary address at 24 Willow Lane, Bramblewick.",
+      "Provide responsive desktop and mobile layouts, semantic headings, native section navigation, a skip link, visible keyboard focus, and reduced-motion support.",
+      "Include a dependency lockfile, development and production scripts, documentation, and deterministic content and structure tests."
+    ],
+    "testing": [
+      "All four tests, the production build, and TypeScript checks passed in local verification and were independently rerun successfully during review. The build statically prerendered the landing page.",
+      "Browser QA passed all four acceptance criteria at 1280×800 and 390×844, checking content, branding, fictional disclosures, readability, navigation, and absence of observed horizontal overflow.",
+      "Keyboard QA verified the visible skip link, desktop and mobile section navigation, and footer return link using Tab and Enter.",
+      "Independent review started the production server, confirmed key page content and responsive viewport metadata, and received HTTP 200 responses for the font stylesheet, representative font files, and both photographs."
+    ],
+    "limitations": [
+      "This is an informational fictional-shop site; ordering, payments, reservations, and backend functionality are intentionally absent.",
+      "Independent review could not launch a browser because Chrome was unavailable in its environment. Its browser-usability assessment relied on supplied desktop/mobile screenshots, page snapshots, and keyboard evidence; separate browser QA passed.",
+      "Automated tests cover content and structure; CSS-presence assertions alone do not establish browser usability."
+    ]
+  },
+  "criteria": [
+    {
+      "id": "AC1",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e5",
+        "r1-e15",
+        "r1-e16",
+        "r1-e17",
+        "r1-e41",
+        "r1-e42"
+      ]
+    },
+    {
+      "id": "AC2",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e5",
+        "r1-e7",
+        "r1-e15",
+        "r1-e35",
+        "r1-e42"
+      ]
+    },
+    {
+      "id": "AC3",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e6",
+        "r1-e10",
+        "r1-e13",
+        "r1-e15",
+        "r1-e21",
+        "r1-e23",
+        "r1-e27",
+        "r1-e29",
+        "r1-e30",
+        "r1-e31",
+        "r1-e33",
+        "r1-e35",
+        "r1-e37",
+        "r1-e38",
+        "r1-e39",
+        "r1-e43",
+        "r1-e46",
+        "r1-e47",
+        "r1-e48"
+      ]
+    },
+    {
+      "id": "AC4",
+      "status": "pass",
+      "evidenceIds": [
+        "r1-e5",
+        "r1-e16",
+        "r1-e17",
+        "r1-e23",
+        "r1-e33",
+        "r1-e35",
+        "r1-e36",
+        "r1-e41",
+        "r1-e42"
+      ]
+    }
+  ],
+  "qaVerdict": "pass",
+  "reviewVerdict": "pass",
+  "evidence": [
+    {
+      "id": "r1-e1",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "check",
+      "targetId": null,
+      "operation": "content-tests",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e2",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "check",
+      "targetId": null,
+      "operation": "production-build",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e3",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "check",
+      "targetId": null,
+      "operation": "typecheck",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e4",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "open",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e5",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e6",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "viewport",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e7",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e8",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "help",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e9",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e10",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e11",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e12",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e13",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e14",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e15",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e16",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e17",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e18",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e19",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e20",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e21",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "viewport",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e22",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e23",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "snapshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e24",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e25",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "help",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e26",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e27",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e28",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e29",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e30",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e31",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e32",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e33",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e34",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e35",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e36",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e37",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e38",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e39",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e40",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "viewport",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e41",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "click",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e42",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e43",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "scroll",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e44",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e45",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e46",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e47",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "browser",
+      "targetId": "coffee-shop-web",
+      "operation": "press",
+      "exitCode": 0
+    },
+    {
+      "id": "r1-e48",
+      "revision": "b6764dce47aadb9b23934622b0487954eee9fb19",
+      "kind": "screenshot",
+      "targetId": "coffee-shop-web",
+      "operation": "screenshot",
+      "exitCode": 0
+    }
+  ]
+}
